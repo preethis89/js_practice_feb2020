@@ -37,11 +37,33 @@ function getSalePrice(originalPrice, reduction) {
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   // Add your code here!
+  const len = str.length/2;
+  if(str.length%2 ===1) {
+      //return str[len-1] + str[len];
+      return str[len];
+  } 
+  else{
+      //return str[len];
+      return str[len-1] + str[len];
+  }
 }
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
   // Add your code here!
+  //word.forEach(function (x) {
+    let arr = [];
+    for(k=0 ; k < word.length ; k++){
+    for(i=1 ; i < word.length+1; i++)
+{
+  j = word.length-i;
+  arr[i-1] = word[j];
+} 
+    }
+    let reversalWord = arr.join("");
+    return reversalWord;   
+  //});
+
 }
 
 function reverseAllWords(words) {
