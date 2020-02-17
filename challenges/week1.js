@@ -69,21 +69,64 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Add your code here!
+  let arr = [];
+  for(k=0 ; k < words.length ; k++){
+    let arrayWord = words[k];
+  for(i=1 ; i < arrayWord.length+1; i++)
+{
+j = arrayWord.length-i;
+arr[i-1] = arrayWord[j];
+} 
+
+  }
+  //let reversalWord = arr.join("");
+ 
+finalReversedWord = arr.join("");
+
+return finalReversedWord;
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   // Add your code here!
+  let count = 0;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].type === "Linux")
+      count++;
+  }
+  return count
+  
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   // Add your code here!
+  let addedScores =0 ;
+  for(i=0 ; i< scores.length ; i++){
+    addedScores += scores[i];
+
+  }
+  const meanScore = addedScores/scores.length;
+  const finalMeanScore = (Math.round(meanScore*100)/100);
+  return finalMeanScore;
 }
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
   // Add your code here!
+  if(n%3 === 0 && n%5 === 0)
+  return "fizzbuzz";
+  else{
+  {
+    if(n%5===0)
+    return "buzz";
+    else if(n%3===0)
+    return "fizz";
+    else
+    return n;
+  }
+  
+}
 }
 
 module.exports = {
