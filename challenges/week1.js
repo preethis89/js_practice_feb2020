@@ -51,7 +51,6 @@ function getMiddleCharacter(str) {
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
   // Add your code here!
-  //word.forEach(function (x) {
     let arr = [];
     for(k=0 ; k < word.length ; k++){
     for(i=1 ; i < word.length+1; i++)
@@ -62,7 +61,7 @@ function reverseWord(word) {
     }
     let reversalWord = arr.join("");
     return reversalWord;   
-  //});
+
 
 }
 
@@ -70,6 +69,7 @@ function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Add your code here!
   let arr = [];
+  let finalReversedWord =[];
   for(k=0 ; k < words.length ; k++){
     let arrayWord = words[k];
   for(i=1 ; i < arrayWord.length+1; i++)
@@ -77,12 +77,8 @@ function reverseAllWords(words) {
 j = arrayWord.length-i;
 arr[i-1] = arrayWord[j];
 } 
-
-  }
-  //let reversalWord = arr.join("");
- 
-finalReversedWord = arr.join("");
-
+finalReversedWord[k] = arr.join("");
+}
 return finalReversedWord;
 }
 
