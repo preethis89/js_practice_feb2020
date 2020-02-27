@@ -1,9 +1,9 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
   // Your code here!
-  
+
   let result = nums.map((item) => item * item);
-  return  result;
+  return result;
 }
 
 function camelCaseWords(words) {
@@ -11,21 +11,28 @@ function camelCaseWords(words) {
   // Your code here!
   let resWord;
   let camelCaseArr = [];
-  if(words[1] === undefined)
-  return words[0];
-  else{
-    for(i=1;i<words.length;i++){
+  if (words[1] === undefined)
+    return words[0];
+  else {
+    for (i = 1; i < words.length; i++) {
       let capWord = words[i];
-      resWord = capWord[0].toUpperCase() + capWord.slice(1);   
+      resWord = capWord[0].toUpperCase() + capWord.slice(1);
       camelCaseArr.push(resWord);
+    }
   }
-}
-  return words[0]+ camelCaseArr.join('');
+  return words[0] + camelCaseArr.join('');
 }
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   // Your code here!
+  let totalSubjects = [];
+  if (people.values === 0)
+    return null;
+  else
+    totalSubjects = people.map(element => element.subjects);
+  return totalSubjects.flat(1).length;
+
 }
 
 function checkIngredients(menu, ingredient) {
