@@ -34,17 +34,41 @@ function getIntegers(nums) {
 function getCities(users) {
   if (!users) throw new Error("users is required");
   // Your code here
+  let cityArr = [];
+  for (i = 0; i < users.length; i++)
+    cityArr.push(users[i].data.city.displayName);
+  return cityArr;
+
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
+  let numArr = [];
+  let sqrtNum = null;
+  for(i=0 ; i < nums.length ; i++){
+    sqrtNum = Math.sqrt(nums[i]);
+    if(Number.isInteger(sqrtNum))
+    numArr[i] = sqrtNum;
+    else
+    numArr[i] = sqrtNum.toFixed(2);
+    }
+  return numArr.join();
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
   // Your code here
+  let expString = [];
+  for(i=0 ; i< sentences.length ; i++)
+  {
+    let mystr = sentences[i]
+    if(mystr.toLowerCase().includes(str))
+    expString.push(mystr);
+  }
+  
+return expString;
 }
 
 function getLongestSides(triangles) {
