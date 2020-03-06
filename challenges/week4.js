@@ -18,11 +18,17 @@ function findNamesBeginningWith(names, char) {
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
   // Your code here
+  let verbWords = [];
+  verbWords = words.filter(element => element[0] === "t" && element[1] === "o" && element[2] === " ");
+  return verbWords;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
+  let intArray = [];
+  intArray = nums.filter(element => Number.isInteger(element));
+  return intArray;
 }
 
 function getCities(users) {
