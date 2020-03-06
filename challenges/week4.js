@@ -46,13 +46,13 @@ function getSquareRoots(nums) {
   // Your code here
   let numArr = [];
   let sqrtNum = null;
-  for(i=0 ; i < nums.length ; i++){
+  for (i = 0; i < nums.length; i++) {
     sqrtNum = Math.sqrt(nums[i]);
-    if(Number.isInteger(sqrtNum))
-    numArr[i] = sqrtNum;
+    if (Number.isInteger(sqrtNum))
+      numArr[i] = sqrtNum;
     else
-    numArr[i] = sqrtNum.toFixed(2);
-    }
+      numArr[i] = sqrtNum.toFixed(2);
+  }
   return numArr.join();
 }
 
@@ -61,14 +61,13 @@ function findSentencesContaining(sentences, str) {
   if (!str) throw new Error("str is required");
   // Your code here
   let expString = [];
-  for(i=0 ; i< sentences.length ; i++)
-  {
+  for (i = 0; i < sentences.length; i++) {
     let mystr = sentences[i]
-    if(mystr.toLowerCase().includes(str))
-    expString.push(mystr);
+    if (mystr.toLowerCase().includes(str))
+      expString.push(mystr);
   }
-  
-return expString;
+
+  return expString;
 }
 
 function getLongestSides(triangles) {
