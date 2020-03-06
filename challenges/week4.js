@@ -51,9 +51,9 @@ function getSquareRoots(nums) {
     if (Number.isInteger(sqrtNum))
       numArr[i] = sqrtNum;
     else
-      numArr[i] = sqrtNum.toFixed(2);
+      numArr[i] = parseFloat(sqrtNum.toFixed(2));
   }
-  return numArr.join();
+  return numArr;
 }
 
 function findSentencesContaining(sentences, str) {
