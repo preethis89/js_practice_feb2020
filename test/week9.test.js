@@ -35,7 +35,7 @@ describe("getComplementaryDNA", () => {
         expect(getComplementaryDNA("catccccgttaaggccaaaagactg")).toBe("gtaggggcaattccggttttctgac");
     });
 });
-xdescribe("isItPrime", () => {
+describe("isItPrime", () => {
     test("returns true if a given number is prime and false for not a prime number", () => {
         expect(isItPrime(127)).toBe(true);
         expect(isItPrime(773)).toBe(true);
@@ -43,14 +43,14 @@ xdescribe("isItPrime", () => {
         expect(isItPrime(939)).toBe(false);
     });
 });
-xdescribe("createMatrix", () =>{
+describe("createMatrix", () =>{
     test("return an array of n arrays, each filled with n items", () =>{
-        expect(createMatrix(2,"dino")).toBe([["dino","dino"],["dino","dino"]]);
-        expect(createMatrix(4,4)).toBe([[4,4,4,4],[4,4,4,4],[4,4,4,4],[4,4,4,4]]);
-        expect(createMatrix(1,"car")).toBe([["car"]]);
+        expect(createMatrix(2,"dino")).toEqual ([["dino","dino"],["dino","dino"]]);
+        expect(createMatrix(4,4)).toEqual([[4,4,4,4],[4,4,4,4],[4,4,4,4],[4,4,4,4]]);
+        expect(createMatrix(1,"car")).toEqual([["car"]]);
     });
 });
-xdescribe("areWeCovered", ()=>{
+describe("areWeCovered", ()=>{
     test("returns true or false for a given day and list of staff available", () =>{
         const staff = [
              { name: "Suzy", rota: ["Monday", "Tuesday", "Friday", "Wednesday"] },

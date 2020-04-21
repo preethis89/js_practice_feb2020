@@ -68,6 +68,24 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  if (n===1)
+  {
+    return false;
+  }
+  else if(n === 2)
+  {
+    return true;
+  }else
+  {
+    for(let i = 2; i < n; i++)
+    {
+      if(n % i === 0)
+      {
+        return false;
+      }
+    }
+    return true;  
+  }
 };
 
 /**
@@ -84,6 +102,16 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  let i,j;
+  let arr= [];
+  for(i=0;i<n;i++)
+    {
+      arr[i]=[];     
+      for(j=0;j<n;j++){
+       arr[i][j]=fill;
+     } 
+    }
+    return arr;
 };
 
 /**
@@ -101,6 +129,66 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  let i,count=0;
+  switch(day){
+    case "Monday":
+      for(i=0 ; i<staff.length ; i++){
+        let c = Object.values(staff[i].rota);
+        if(c.includes("Monday"))
+        count++;}
+        if(count<3)
+        return false;
+      break;
+      case "Tuesday":
+        for(i=0 ; i<staff.length ; i++){
+          let c = Object.values(staff[i].rota);
+          if(c.includes("Tuesday"))
+          count++;}
+          if(count<3)
+          return false;
+      break;
+      case "Wednesday":
+        for(i=0 ; i<staff.length ; i++){
+          let c = Object.values(staff[i].rota);
+          if(c.includes("Wednesday"))
+          count++;}
+          if(count<3)
+          return false;
+      break;
+      case "Thursday":
+        for(i=0 ; i<staff.length ; i++){
+          let c = Object.values(staff[i].rota);
+          if(c.includes("Thursday"))
+          count++;}
+          if(count<3)
+          return false;
+      break;
+      case "Friday":
+        for(i=0 ; i<staff.length ; i++){
+          let c = Object.values(staff[i].rota);
+          if(c.includes("Friday"))
+          count++;}
+          if(count<3)
+          return false;
+      break;
+      case "Saturday":
+        for(i=0 ; i<staff.length ; i++){
+          let c = Object.values(staff[i].rota);
+          if(c.includes("Saturday"))
+          count++;}
+          if(count<3)
+          return false;
+      break;
+      case "Sunday":
+        for(i=0 ; i<staff.length ; i++){
+          let c = Object.values(staff[i].rota);
+          if(c.includes("Sunday"))
+          count++;}
+          if(count<3)
+          return false;
+      break;
+  }
+  return true;
 };
 
 module.exports = {
