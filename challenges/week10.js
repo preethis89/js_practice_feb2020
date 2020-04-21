@@ -2,8 +2,15 @@
  * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
  * @param {Number} n
  */
+let i;
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  let total = 0;
+  const dgt = Array.from(String(n), Number);
+  for (i = 0; i < dgt.length; i++) {
+    total += dgt[i];
+  }
+  return total;
 };
 
 /**
@@ -17,7 +24,27 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  let rangeArr = [], counter = start;
+  rangeArr[0] = start;
+  if (step) {
+    for (i = 1; i < (end / step); i++) {
+      counter = counter + step;
+      rangeArr.push(counter);
+    }
+    return rangeArr;
+  }
+  else {
+    step = 1
+    for (i = 1; i < (end / step) - 1; i++) {
+      counter = counter + step;
+      rangeArr.push(counter);
+    }
+    return rangeArr;
+
+  }
+
 };
+
 
 /**
  * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
@@ -65,6 +92,14 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  let r,g,b,rgbStr;
+  hexStr = hexStr.replace('#','');
+    r = parseInt(hexStr.substring(0,2), 16);
+    g = parseInt(hexStr.substring(2,4), 16);
+    b = parseInt(hexStr.substring(4,6), 16);
+
+    rgbStr = 'rgb('+r+','+g+','+b+')';
+    return rgbStr;
 };
 
 /**
