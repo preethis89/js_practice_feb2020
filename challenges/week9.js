@@ -6,6 +6,12 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  let sum = null;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 3 === 0 || arr[i] % 5 === 0)
+      sum += arr[i];
+  }
+  return sum;
 };
 
 /**
@@ -14,8 +20,15 @@ const sumMultiples = arr => {
  * @returns {Boolean}
  */
 const isValidDNA = str => {
-  if (str === undefined) throw new Error("str is required");
+  let checkstr = str.toUpperCase();
+  for (let i = 0; i < checkstr.length; i++) {
+    if (checkstr[i] != "A" && checkstr[i] != "C" && checkstr[i] != "G" && checkstr[i] != "T")
+      return false;
+
+  }
+  return true;
 };
+
 
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
@@ -24,6 +37,28 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let compStr = "";
+  let checkstr = str.toUpperCase();
+  for (let i = 0; i < checkstr.length; i++) {
+    switch (checkstr[i]) {
+      case "A":
+        compStr += "T";
+        break;
+      case "C":
+        compStr += "G";
+        break;
+      case "G":
+        compStr += "C";
+        break;
+      case "T":
+        compStr += "A";
+        break;
+
+    }
+
+  }
+  return compStr.toLowerCase();
+
 };
 
 /**

@@ -1,3 +1,4 @@
+let i,j,k;
 function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
   // Add your code here!

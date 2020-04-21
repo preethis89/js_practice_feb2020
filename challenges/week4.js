@@ -1,3 +1,4 @@
+let i;
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
@@ -12,7 +13,7 @@ function findNamesBeginningWith(names, char) {
   // Your code here
   let listOfNames = [];
   listOfNames = names.filter(element => element[0] === char);
-  return listOfNames; ``
+  return listOfNames; 
 }
 
 function findVerbs(words) {
@@ -75,9 +76,9 @@ function getLongestSides(triangles) {
   // Your code here
   let longArr = [];
   let num = [];
-  let result = null;
+  let res = null;
   for (i = 0; i < triangles.length; i++) {
-    num[i] = triangles[i].sort(function (a, b) { return b - a });;
+    num[i] = triangles[i].sort(function (a, b) { return b - a });
     res = num[i][0];
     longArr.push(res);
 
