@@ -75,11 +75,39 @@ const createRange = (start, end, step) => {
  * For example, if passed the above users and the date "2019-05-04" the function should return ["beth_1234"] as she used over 100 minutes of screentime on that date.
  * @param {Array} users
  */
-const getScreentimeAlertList = (users, date) => {
+const getScreenTimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
-};
-
+  let length = users.length;
+  let screenLength,j,k, sum = 0, array;
+  let result = [];
+  let values;
+  
+  for (i=0;i<length;i++){
+    
+  screenLength = users[i].screenTime.length;
+  for (j=0; j<screenLength; j++){
+  if (users[i].screenTime[j].date===date){
+   
+  values = users[i].screenTime[j].usage;
+  
+  array = Object.values(values);
+  for (k=0;k<array.length;k++){
+  
+    sum = sum + array[k];
+  }
+  if( sum >= 100){
+    result.push(users[i].username);
+    
+  }
+  }
+  
+  }
+  
+  }
+  return result;
+  
+  };
 /**
  * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
  * https://www.youtube.com/watch?v=u_atXp-NF6w
@@ -97,7 +125,6 @@ const hexToRGB = hexStr => {
     r = parseInt(hexStr.substring(0,2), 16);
     g = parseInt(hexStr.substring(2,4), 16);
     b = parseInt(hexStr.substring(4,6), 16);
-
     rgbStr = 'rgb('+r+','+g+','+b+')';
     return rgbStr;
 };
@@ -119,7 +146,7 @@ const findWinner = board => {
 module.exports = {
   sumDigits,
   createRange,
-  getScreentimeAlertList,
+  getScreenTimeAlertList,
   hexToRGB,
   findWinner
 };
