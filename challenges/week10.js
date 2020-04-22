@@ -79,35 +79,35 @@ const getScreenTimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
   let length = users.length;
-  let screenLength,j,k, sum = 0, array;
+  let screenLength, j, k, sum = 0, array;
   let result = [];
   let values;
-  
-  for (i=0;i<length;i++){
-    
-  screenLength = users[i].screenTime.length;
-  for (j=0; j<screenLength; j++){
-  if (users[i].screenTime[j].date===date){
-   
-  values = users[i].screenTime[j].usage;
-  
-  array = Object.values(values);
-  for (k=0;k<array.length;k++){
-  
-    sum = sum + array[k];
-  }
-  if( sum >= 100){
-    result.push(users[i].username);
-    
-  }
-  }
-  
-  }
-  
+
+  for (i = 0; i < length; i++) {
+
+    screenLength = users[i].screenTime.length;
+    for (j = 0; j < screenLength; j++) {
+      if (users[i].screenTime[j].date === date) {
+
+        values = users[i].screenTime[j].usage;
+
+        array = Object.values(values);
+        for (k = 0; k < array.length; k++) {
+
+          sum = sum + array[k];
+        }
+        if (sum >= 100) {
+          result.push(users[i].username);
+
+        }
+      }
+
+    }
+
   }
   return result;
-  
-  };
+
+};
 /**
  * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
  * https://www.youtube.com/watch?v=u_atXp-NF6w
@@ -120,13 +120,13 @@ const getScreenTimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
-  let r,g,b,rgbStr;
-  hexStr = hexStr.replace('#','');
-    r = parseInt(hexStr.substring(0,2), 16);
-    g = parseInt(hexStr.substring(2,4), 16);
-    b = parseInt(hexStr.substring(4,6), 16);
-    rgbStr = 'rgb('+r+','+g+','+b+')';
-    return rgbStr;
+  let r, g, b, rgbStr;
+  hexStr = hexStr.replace('#', '');
+  r = parseInt(hexStr.substring(0, 2), 16);
+  g = parseInt(hexStr.substring(2, 4), 16);
+  b = parseInt(hexStr.substring(4, 6), 16);
+  rgbStr = 'rgb(' + r + ',' + g + ',' + b + ')';
+  return rgbStr;
 };
 
 /**
@@ -141,29 +141,29 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
- let winningCombination = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]];
- let boards=[];
- boards =  board.flat(1);
- for(let i = 0; i < winningCombination.length; i++) { 
-  let sum = 0,count=0;
-  let w = winningCombination[i];
-  for(let b = 0; b < w.length; b++) {
-    if(boards[w[b]] === "X") {
-      sum++
-      if(sum === 3) {
-        return "X is the Winner";
-       }
+  let winningCombination = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]];
+  let boards = [];
+  boards = board.flat(1);
+  for (let i = 0; i < winningCombination.length; i++) {
+    let sum = 0, count = 0;
+    let w = winningCombination[i];
+    for (let b = 0; b < w.length; b++) {
+      if (boards[w[b]] === "X") {
+        sum++
+        if (sum === 3) {
+          return "X is the Winner";
+        }
+      }
+      else if (boards[w[b]] === "0")
+        count++
+      if (count === 3)
+        return "0 is the Winner";
     }
-    else if(boards[w[b]] === "0")
-      count++
-      if(count ===3)
-      return "0 is the Winner";
-  } 
-  
- 
-  
-}
-return "Null";
+
+
+
+  }
+  return "Null";
 
 };
 
