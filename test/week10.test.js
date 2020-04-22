@@ -2,7 +2,8 @@ const {
     sumDigits,
     createRange,
     hexToRGB,
-    getScreenTimeAlertList
+    getScreenTimeAlertList,
+    findWinner
 } = require("../challenges/week10");
 
 describe("sumDigits", () => {
@@ -70,4 +71,13 @@ describe("getScreenTimeAlertList", () =>{
         expect(getScreenTimeAlertList(users,"2019-06-11")).toEqual([]);
         expect(getScreenTimeAlertList(users,"2019-06-04")).toEqual(["beth_1234","zaid_j_1989"]);
  });
+});
+describe("findWinner", () => {
+    test("returns the winner of noughts & crosses", () => {
+        expect(findWinner([["X","0","X"],["X","Null",0],["X",0,0]])).toEqual("X is the Winner");
+        expect(findWinner([["X","0","X"],["X","Null","0"],["0","X","Null"]])).toEqual("Null");     
+        expect(findWinner([["X","0","X"],["X","0","0"],["Null","0","X"]])).toEqual("0 is the Winner"); 
+
+    });
+   
 });

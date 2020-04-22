@@ -47,7 +47,7 @@ const createRange = (start, end, step) => {
 
 
 /**
- * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
+ * This function takes an array of user objects and their usage in minutes of letious applications. The format of the data should be as follows:
  * [
  *  {
  *    username: "beth_1234",
@@ -141,6 +141,30 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+ let winningCombination = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]];
+ let boards=[];
+ boards =  board.flat(1);
+ for(let i = 0; i < winningCombination.length; i++) { 
+  let sum = 0,count=0;
+  let w = winningCombination[i];
+  for(let b = 0; b < w.length; b++) {
+    if(boards[w[b]] === "X") {
+      sum++
+      if(sum === 3) {
+        return "X is the Winner";
+       }
+    }
+    else if(boards[w[b]] === "0")
+      count++
+      if(count ===3)
+      return "0 is the Winner";
+  } 
+  
+ 
+  
+}
+return "Null";
+
 };
 
 module.exports = {
